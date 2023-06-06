@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -23,65 +24,135 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _width = 200.0;
-  var _height =100.0;
-  bool flag =true;
 
-  Decoration myDecor = BoxDecoration(
-    borderRadius: BorderRadius.circular(2),
-        color: Colors.blueGrey,
-  );
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Foo Animatiom'),
+        title: Text('Scroll view'),
       ),
-      body:Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedContainer(
-              width:_width ,
-              height: _height,
-              curve: Curves.bounceInOut,
-              decoration: myDecor,
-              duration: Duration(seconds: 2),
-            ),
-            ElevatedButton(onPressed: (){
-              setState((){
-                if (flag) {
-                  _width=100;
-                  _height=200;
-                  flag = false;
+      body:Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 11),
+                        height: 200,
+                        width: 200,
 
-                  myDecor =  BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                    color: Colors.yellow
-                  );
-              }else{
-                  _width=200.0;
-                  _height=100.0;
-                  flag = true;
+                        color: Colors.lightGreen,
 
-                  myDecor =  BoxDecoration(
-                      borderRadius: BorderRadius.circular(2),
-                    color: Colors.blueGrey
-                  );
-                }
-              });
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 11),
+                        height: 200,
+                        width: 200,
 
-            }
-            , child:Text("Animated Button") )
-          ],
+                        color: Colors.green,
+
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 11),
+                        height: 200,
+                        width: 200,
+
+                        color: Colors.pink,
+
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 11),
+                        height: 200,
+                        width: 200,
+
+                        color: Colors.black,
+
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 11),
+                        height: 200,
+                        width: 200,
+
+                        color: Colors.orange,
+
+                      ),
+
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+
+                color: Colors.orange,
+
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+
+                color: Colors.blueGrey,
+
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+
+                color: Colors.red,
+
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+
+                color: Colors.lightGreen,
+
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+
+                color: Colors.orange,
+
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+
+                color: Colors.blueGrey,
+
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+
+                color: Colors.red,
+
+              ),
+
+
+
+
+
+            ],
+          ),
         ),
       )
 
+      );
 
 
 
-    );
+
+
   }
 }
